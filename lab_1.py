@@ -111,6 +111,23 @@ def func_14(n):
         k += ' '
     return k
 
+
 num = str(input('Enter string: '))
 print(func_14(num))
+
+
+#Task5: дана строка, найти все даты, которые описаны в виде "31 февраля 2024"
+def func_data(n):
+    k = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря']
+    result = []
+    for i in re.findall(r'\d{1,2} \w{3,8} \d\d\d\d', n):
+        s = i.split()
+        if k.__contains__(s[1]) and 1 <= int(s[0]) <= 31:
+            result.append(i)
+    return result
+
+
+num = str(input('Enter string for search data: '))
+print(func_data(num))
+
 
