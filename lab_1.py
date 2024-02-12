@@ -131,3 +131,56 @@ num = str(input('Enter string for search data: '))
 print(func_data(num))
 
 
+#Task6-8.v5.5: дана строка, необходимо найти наибольшее количество идущих подряд символов кириллицы
+def func_6_5(n):
+    cur_len = 0
+    max_len = 0
+    for i in n:
+        if re.search(r'[А-ЯЁа-яё]', i):
+            cur_len += 1
+            if cur_len > max_len:
+                max_len = cur_len
+        else:
+            cur_len = 0
+    return max_len
+
+
+num = str(input('Enter string for max_len of kirillitsa: '))
+print(func_6_5(num))
+
+#Task6-8.v5.7: дана строка, необходимо найти минимальное из имеющихся в ней натуральных чисел
+def func_7_7(n):
+    k = []
+    k1 = ''
+    for i in n:
+        if re.search(r'[0-9]', i):
+            k1 += i
+        else:
+            if k1 != '':
+                k.append(int(k1))
+            k1 = ''
+    return min(k)
+
+
+num = str(input('Enter string for min_value of N numbers : '))
+print(func_7_7(num))
+
+
+#Task6-8.v5.14: дана строка, необходимо найти наибольшее количество идущих подряд цифр
+def func_8_14(n):
+    cur_len = 0
+    max_len = 0
+    for i in n:
+        if re.search(r'[0-9]', i):
+            cur_len += 1
+            if cur_len > max_len:
+                max_len = cur_len
+        else:
+            cur_len = 0
+    return max_len
+
+
+num = str(input('Enter string for max_len of numbers : '))
+print(func_8_14(num))
+
+
