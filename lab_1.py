@@ -3,7 +3,7 @@ import re
 from array import *
 
 
-#Task1.v5.1: найти кол-во делителей числа, не делящихся на 3
+# Task1.v5.1: найти кол-во делителей числа, не делящихся на 3
 def func_1(n):
     k = 0
     for i in range(1, n+1):
@@ -12,11 +12,11 @@ def func_1(n):
     return k
 
 
-num = int(input('Enter number: '))
+num = int(input('Enter the number for count of divisors of number not divisible by 3: '))
 print(func_1(num))
 
 
-#Task1.v5.2: найти минимальную нечетную цифру числа
+# Task1.v5.2: найти минимальную нечетную цифру числа
 def func_2(n):
     t = n % 10
     n //= 10
@@ -31,11 +31,11 @@ def func_2(n):
         return t
 
 
-num = int(input('Enter number: '))
+num = int(input('Enter the number for the minimum odd digit: '))
 print(func_2(num))
 
 
-#Task1.v5.3: найти сумму всех делителей числа, взаимно простых с суммой цифр числа и не взаимно простых  с произведением цифр числа
+# Task1.v5.3: найти сумму всех делителей числа, взаимно простых с суммой цифр числа и не взаимно простых  с произведением цифр числа
 def func_3(n):
     sum_number = 0
     comp_number = 1
@@ -62,11 +62,11 @@ def func_3(n):
     return summ
 
 
-num = int(input('Enter number: '))
+num = int(input('Enter the number for the amount... : '))
 print(func_3(num))
 
 
-#Task2-4.v5.5: дана строка, перемешать все символы в случайном порядке
+# Task2-4.v5.5: дана строка, перемешать все символы в случайном порядке
 def func_5(n):
     a = []
     for i in n:
@@ -78,11 +78,11 @@ def func_5(n):
     return s
 
 
-num = str(input('Enter string: '))
+num = str(input('Enter the string to shuffle: '))
 print(func_5(num))
 
 
-#Task2-4.v5.7: дана строка, состоящая из символов латиницы. необходимо проверить, образуют ли прописные символы этой строки палиндром
+# Task2-4.v5.7: дана строка, состоящая из символов латиницы. необходимо проверить, образуют ли прописные символы этой строки палиндром
 def func_7(n):
     k = True
     for i in n:
@@ -98,11 +98,11 @@ def func_7(n):
     return s == s[::-1]
 
 
-num = str(input('Is it palindrome: '))
+num = str(input('Is this a palindrome: '))
 print(func_7(num))
 
 
-#Task2-3.v5.14: дана строка, в которой записаны слова через пробел. необх упоряд слова по кол-ву букв в каждом слове
+# Task2-3.v5.14: дана строка, в которой записаны слова через пробел. необх упоряд слова по кол-ву букв в каждом слове
 def func_14(n):
     s = n.split()
     k = ''
@@ -112,11 +112,11 @@ def func_14(n):
     return k
 
 
-num = str(input('Enter string: '))
+num = str(input('Enter the string to sort by quantity: '))
 print(func_14(num))
 
 
-#Task5: дана строка, найти все даты, которые описаны в виде "31 февраля 2024"
+# Task5: дана строка, найти все даты, которые описаны в виде "31 февраля 2024"
 def func_data(n):
     k = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря']
     result = []
@@ -127,11 +127,11 @@ def func_data(n):
     return result
 
 
-num = str(input('Enter string for search data: '))
+num = str(input('Enter the string for search data: '))
 print(func_data(num))
 
 
-#Task6-8.v5.5: дана строка, необходимо найти наибольшее количество идущих подряд символов кириллицы
+# Task6-8.v5.5: дана строка, необходимо найти наибольшее количество идущих подряд символов кириллицы
 def func_6_5(n):
     cur_len = 0
     max_len = 0
@@ -145,10 +145,7 @@ def func_6_5(n):
     return max_len
 
 
-num = str(input('Enter string for max_len of kirillitsa: '))
-print(func_6_5(num))
-
-#Task6-8.v5.7: дана строка, необходимо найти минимальное из имеющихся в ней натуральных чисел
+# Task6-8.v5.7: дана строка, необходимо найти минимальное из имеющихся в ней натуральных чисел
 def func_7_7(n):
     k = []
     k1 = ''
@@ -162,11 +159,7 @@ def func_7_7(n):
     return min(k)
 
 
-num = str(input('Enter string for min_value of N numbers : '))
-print(func_7_7(num))
-
-
-#Task6-8.v5.14: дана строка, необходимо найти наибольшее количество идущих подряд цифр
+# Task6-8.v5.14: дана строка, необходимо найти наибольшее количество идущих подряд цифр
 def func_8_14(n):
     cur_len = 0
     max_len = 0
@@ -180,7 +173,18 @@ def func_8_14(n):
     return max_len
 
 
-num = str(input('Enter string for max_len of numbers : '))
-print(func_8_14(num))
+print("Enter the task number from: {5, 7, 14}")
+n = int(input())
+if n == 5:
+    num = str(input('Enter the string for max_len of kirillitsa: '))
+    print(func_6_5(num))
+if n == 7:
+    num = str(input('Enter the string for min_value of N numbers : '))
+    print(func_7_7(num))
+if n == 14:
+    num = str(input('Enter the string for max_len of numbers : '))
+    print(func_8_14(num))
+
+
 
 
