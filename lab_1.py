@@ -95,7 +95,10 @@ def func_7(n):
                 s += i
     else:
         return "Error, use only Latin letters"
-    return s == s[::-1]
+    if s != '':
+        return s == s[::-1]
+    else:
+        return "There is no uppercase palindrome in the string"
 
 
 num = str(input('Is this a palindrome: '))
@@ -184,6 +187,32 @@ if n == 7:
 if n == 14:
     num = str(input('Enter the string for max_len of numbers : '))
     print(func_8_14(num))
+
+
+# Task9: Прочитать список строк с клавиатуры, упорядочить по длине строк
+n = int(input('Enter number of lines: '))
+s = []
+for i in range(n):
+    k = str(input('Enter the string: '))
+    s.append(k)
+print('Ordered by number of lines: ')
+print("\n".join(sorted(s, key=len)))
+
+
+# Task9: Прочитать список строк с клавиатуры, упорядочить по количеству слов в строке
+n = int(input('Enter number of lines: '))
+s = []
+for i in range(n):
+    k = str(input('Enter the string: '))
+    k = k.split()
+    s.append(k)
+s = sorted(s, key=len)
+print('Ordered by number of words per line: ')
+for i in range(n):
+    s[i] = " ".join(s[i])
+print("\n".join(s))
+
+
 
 
 
