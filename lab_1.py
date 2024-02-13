@@ -1,3 +1,4 @@
+import array
 import random
 import re
 from array import *
@@ -306,3 +307,78 @@ if n == 8:
     print(func_13_8(s,num))
 if n == 12:
     print(func_14_12(s, num))
+
+def enter_arr():
+    arr = array('i', [])
+    num = int(input('Enter the array length: '))
+    for i in range(num):
+        a = int(input("Enter element: "))
+        arr.append(a)
+    return arr
+
+
+# Task15-19.v5.5: дан целочисленный массив и натуральный индекс
+# (число, меньшее размера массива). необходимо определить, является ли
+# элемент по указанному индексу глобальным минимумом
+def func_15_5():
+    arr = enter_arr()
+    ind = int(input('Enter the index: '))
+    return arr[ind] == min(arr)
+
+
+# Task15-19.v5.17: дан целоч массив, поменять местами
+# min и max элементы массива
+def func_16_17():
+    arr = enter_arr()
+    arr[arr.index(min(arr))],  arr[arr.index(max(arr))] = arr[arr.index(max(arr))], arr[arr.index(min(arr))]
+    return arr
+
+
+# Task15-19.v5.29: дан цел массив и интервал (a,b).
+# проверить наличие максимального элемента в этом интервале
+def func_17_29():
+    arr = enter_arr()
+    a = int(input('Enter a: '))
+    b = int(input('Enter b: '))
+    return a < max(arr) < b
+
+
+# Task15-19.v5.41: дан целоч. массив. найти среднее арифметическое
+# модулей его элементов
+def func_18_41():
+    arr = enter_arr()
+    s = 0
+    for i in range(len(arr)):
+        s += abs(arr[i])
+    return float(s/len(arr))
+
+
+# Task15-19.v5.53: для введенного списка построить новый с элементами,
+# большими, чем среднее арифм списка, но меньшими, чем
+# его максимальное значение
+def func_19_53():
+    s = []
+    num = int(input('Enter the number of list: '))
+    for i in range(num):
+        s1 = float(input('Enter element: '))
+        s.append(s1)
+    avg = 0
+    for i in range(num):
+        avg += s[i]
+    avg = avg / num
+    for i in range(num):
+        s[i] = random.uniform(avg, max(s))
+    return s
+
+n = int(input('Enter the task number from: {5, 17, 29, 41, 53} '))
+if n == 5:
+    print(func_15_5())
+if n == 17:
+    print(func_16_17())
+if n == 29:
+    print(func_17_29())
+if n == 41:
+    print(func_18_41())
+if n == 53:
+    print(func_19_53())
+
