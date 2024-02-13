@@ -199,7 +199,7 @@ print('Ordered by number of lines: ')
 print("\n".join(sorted(s, key=len)))
 
 
-# Task9: Прочитать список строк с клавиатуры, упорядочить по количеству слов в строке
+# Task10: Прочитать список строк с клавиатуры, упорядочить по количеству слов в строке
 n = int(input('Enter number of lines: '))
 s = []
 for i in range(n):
@@ -213,7 +213,96 @@ for i in range(n):
 print("\n".join(s))
 
 
+# Task11-14.v5.2: отсортировать строку в порядке увеличение
+# среднего веса ASCII кода строки
+def avg_ascii(k):
+    a = 0
+    for i in k:
+        a += ord(i)
+    return a/len(k)
 
 
+def func_11_2(s, n):
+    a = []
+    for i in s:
+        a.append([avg_ascii(i), i])
+    a = sorted(a)
+    return a
 
 
+# Task11-14.v5.6: В порядке увеличения медианного значения выборки строк
+# (прошлое медианное значение удаляется из выборки и производится поиск нового медианного значения)
+def func_12_6(s,n):
+    a = []
+    while s:
+        m = 0
+        i_cur = 0
+        for i in s:
+            if len(i) % 2 == 0:
+                if m == 0 or (ord(i[n // 2]) + ord(i[n // 2 + 1])) / 2 < m:
+                    m = ord(i[n // 2]) + ord(i[n // 2 + 1]) / 2
+                    i_cur = i
+            else:
+                if m == 0 or ord(i[n // 2 + 1]) < m:
+                    m = ord(i[n // 2 + 1])
+                    i_cur = i
+        a.append(i_cur)
+        s.remove(i_cur)
+        n -= 1
+    return a
+
+
+# Task11-14.v5.8: В порядке увеличения квадратичного отклонения между средним
+#весом ASCII-кода символа в строке и максимально среднего ASCII-кода
+#тройки подряд идущих символов в строке.
+def func_13_8(s, n):
+    a = []
+    for i in s:
+        max_w = 0
+        for j in range(len(i)-2):
+            if (ord(i[j]) + ord(i[j+1]) + ord(i[j+2])) > max_w:
+                max_w = ord(i[j]) + ord(i[j+1]) + ord(i[j+2])
+        a.append([(avg_ascii(i) - max_w / 3) ** 2, i])
+    a = sorted(a)
+    return a
+
+
+# Task11-14.v5.12: в порядке увеличения квадратичного отклонения
+# частоты встречаемости самого распространенного символа в наборе строк
+# от частоты его встречаемости в данной строке
+def func_14_12(s, n):
+    dif_symbol = ''
+    n1 = 0
+    for i in s:
+        n1 += len(i)
+        for j in i:
+            if dif_symbol.find(j) == -1:
+                dif_symbol += j
+    a = ''.join(s)
+    c1 = []
+    m0 = 0
+    m1 = ''
+    for k in dif_symbol:
+        if a.count(k) > m0:
+            m0 = a.count(k)
+            m1 = k
+    c = []
+    for i in s:
+        c.append([(m0/n1 - i.count(m1)/len(i))**2, i])
+    return sorted(c)
+
+
+print("Enter the task number from: {2, 6, 8, 12}")
+n = int(input())
+num = int(input('Enter number of lines: '))
+s = []
+for i in range(num):
+    s.append(str(input('Enter the string: ')))
+if n == 2:
+    print(func_11_2(s, num))
+if n == 6:
+    print(func_12_6(s,num))
+if n == 8:
+    print(func_13_8(s,num))
+if n == 12:
+    print(func_14_12(s, num))
