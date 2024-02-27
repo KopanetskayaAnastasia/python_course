@@ -12,7 +12,8 @@ for file in '27-166a.txt', '27-166b.txt':
     f_list = [int(a) for a in f_list]
     max_i = 0
     for i in range(1, n - 2 * k + 1):
-        res = max(f_list[i:n - 2 * k + 1]) + max(f_list[i + k:n - k + 1]) + max(f_list[i + 2 * k:n + 1])
+        '''+2, т.к. длина списка = n+1 и последний индекс в stop среза не включается'''
+        res = max(f_list[i:n - 2 * k + 2]) + max(f_list[i + k:n - k + 2]) + max(f_list[i + 2 * k:n + 2])
         if res > max_i:
             max_i = res
     print(max_i)
