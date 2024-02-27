@@ -1,6 +1,7 @@
 '''вариант 5'''
 
 
+'''Task1'''
 for file in '27-166a.txt', '27-166b.txt':
     f = open(file)
     f_list = []
@@ -22,5 +23,18 @@ for file in '27-166a.txt', '27-166b.txt':
 '''27-166b.txt: 26997'''
 
 
+'''Task2'''
+f = open("task_2.txt", "r", encoding="utf-8")
+text = f.read()
+f_dict = {}
+f_set = set()
+f_list = []
+for i in range(len(text)):
+    if text[i].isalpha():
+        f_set.add(text[i].lower())
+        f_list.append(text[i].lower())
+for i in f_set:
+    f_dict[i] = str(f_list.count(i) / len(text) * 100) + " %"
+print(f_dict)
 
-
+'''считаем частоту встречаемости без учета регистра в тексте с учетом всех символов'''
