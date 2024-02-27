@@ -1,3 +1,6 @@
+'''вариант 5'''
+
+
 def kubiki():
     num_list_a = int(input('Enter number of list for Anya: '))
     num_list_b = int(input('Enter number of list for Borya: '))
