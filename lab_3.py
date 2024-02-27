@@ -1,3 +1,6 @@
+'''вариант 5'''
+
+
 class Rectangle:
     def __init__(self, ident, p1, p2):
         self.ident = ident
