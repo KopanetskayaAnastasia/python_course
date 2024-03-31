@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<meta name="viewport" content="text/html;charset=utf-8" http-equiv="Content-Type">
+	<title>Кадровое агенство</title>
+</head>
+<body>
+    <form action="/cgi-bin/form.py">
+        <h2>Введите данные</h2>
+        <fieldset>
+            <ul>
+                <li>
+                    <label for="user_name">Имя:</label>
+                    <input type="text" name="name" id="user_name" required>
+                </li>
+                <li>
+                    <label for="user_phone">Телефон:</label>
+                    <input type="text" name="phone" id="user_phone" required>
+                </li>
+                <li>
+                    <label for="user_email">Email:</label>
+                    <input type="text" name="email" id="user_email" required>
+                </li>
+                <li>
+                    <label for="profession_name">Профессия:</label>
+                    <input type="text" name="profession" id="profession_name" required>
+                </li>
+                <li>
+                    <label for="created_at">Дата регистрации:</label>
+                    <input type="text" name="data" id="created_at" required>
+                </li>
+            </ul>
+            <button type="submit">Отправить данные</button>
+        </fieldset>
+    </form>
+
+</body>
+</html>
